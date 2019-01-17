@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 v-bind:title="biaoti">我是动态绑定一个属性</h2>
+        <h2 :title="biaoti">简写绑定自定义一个属性</h2>
+        <h2 data-id="aaa">以前绑定自定义属性data-id</h2>
+        <h2 :data-id="aaa">vue绑定自定义所属性的方法</h2>
+        <!-- <button v-on:click="dianwo">敢点我试试</button> -->
+        <button @click="dianwo">敢点我试试</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"v-text",
+                msg1:"v-html",
+                msg2:"v-show",
+                msg3:"{{}}",
+                msg4:"v-on:click=dianwo",
+                msg5:"v-bind",
+                biaoti:"我是一个title",
+                aaa:"自定义id"
+            },
+            methods:{
+                dianwo(){
+                    alert("试试就试试")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

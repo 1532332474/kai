@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            margin: 0 auto;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        请输入内容<input type="text" v-model='msg'>
+        <button @click='addData'>点我</button>
+        <ul>
+            <li v-for='(itme,index) of list'>{{itme}}</li>
+        </ul>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'我是正牌双向数据绑定',
+                list:['a1','b2','c3','d4']
+            },
+            methods:{
+                addData(){
+                    this.list.push(this.msg);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

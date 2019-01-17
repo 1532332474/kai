@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        h2{
+            font-size: 88px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h2>{{str}}</h2>
+        <button @click='moving'>一点都不圆润</button>
+        <button @click='stop'>盘他</button>
+    </div>
+    <script>
+        new Vue({
+            el: '.app',
+            data: {
+                str: '干干巴巴,麻麻赖赖,一点都不圆润,盘他.',
+                timeId:'',
+            },
+            methods: {
+                // start() {
+                //     var start = this.str.substring(0, 1);
+                //     var end = this.str.substring(1);
+                //     this.str = end + start
+                // },
+                moving() {
+                    clearInterval(this.timeId)
+                    this.timeId=setInterval(() => {
+                        var start = this.str.substring(0, 1);
+                        var end = this.str.substring(1);
+                        this.str = end + start
+                    }, 300)
+                },
+                stop(){
+                    clearInterval(this.timeId)
+                    this.timeId=null;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
